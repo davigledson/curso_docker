@@ -1,7 +1,8 @@
-FROM node
+FROM node:14
+# : - versao
 
 #pasta de trabalho
-WORKDIR /app
+WORKDIR /src
 # esta copiando esse arquivo para o diretorio app
 COPY package*.json . 
 
