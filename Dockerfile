@@ -26,3 +26,4 @@ CMD [ "node","app.js" ]
 # renomeia a imagem
 # docker tag <id da imagem> <novo nome da imagem>
 # docker tag <id da imagem> <novo nome da imagem:tag da imagem>
+# docker pull <nome da imagem:tag dela - versao nova ou antiga por exemplo>
