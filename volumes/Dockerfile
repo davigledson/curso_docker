@@ -28,9 +28,35 @@ RUN chown -R www-data:www-data /var/www
 # docker run /dir/data:/data  ---(frag) 
 # EXEMPLO ( docker run -d -p 81:80 --name phpmessages_container2 -v C:\Users\davig\Documents\Docker\curso_docker\volumes\messages:/var/www/html/messages --rm phpmessages )
 
-# Bind mount não seve apenas para  volumes
+# Bind mount não seve apenas para  volumes (não é considerado um volume para a gerencia do docker)
 
-# Podemos utilizar essa tefnica para atualizaçãp em tempo real do projeto
-
+# Podemos utilizar essa tenica para atualizaçãp em tempo real do projeto
+# (so colocar a raiz do projeto como bind mount)
 # sem ter que refazer  obuild a cada atualização do mesmo
 
+
+# podemos criar volumes manualmente tambem
+
+# docker volume create <nome>
+#  para ultilizara
+# docker run -d -p 80:80 --name phpmessages_container2 -v volumeteste:/var/www/html/ --rm phpmessages
+
+# docker volume ls
+# docker volume inspect <nome>
+
+# docker volume rm <nome>  (remove volume, -- perde os dados)
+# (não pode, esta em uso --nem rodando, nem parado)
+
+
+
+
+
+
+
+
+# so remove os volumes anonymous
+# comando para remover todos os volumes que não estão sendo utilizados (docker volume prune)
+# docker volume prune foi atualizado na versão 23 do docker (lançada em fevereiro) e agora ela não funciona da maneira explicada no vídeo.
+
+# volume apenas de leitura
+# docker run -v volume:/data:ro  (ro é abreviação de read only)
