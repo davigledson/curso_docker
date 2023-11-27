@@ -5,3 +5,10 @@
 # docker network create -d macvlan <nome>  (para delimitar  drive)
 # docker network rm <nome> (remove)
 # docker network prune (remove redes não utilizadas)
+
+
+--network flasknetwork: Conecta o contêiner à rede chamada "flasknetwork". Isso significa que este contêiner pode se comunicar com outros contêineres na mesma rede usando o nome do contêiner como hostname.
+
+-e MYSQL_ALLOW_EMPTY_PASSWORD=True: Define uma variável de ambiente indicando que a senha para o usuário root do MySQL será vazia. Isso pode ser útil para ambientes de desenvolvimento, mas, em um ambiente de produção, configurar uma senha é altamente recomendado por questões de segurança.
+
+# docker run -d -p 3006:3006 --name mysql_api_container --rm --network flasknetwork -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql_api_network
