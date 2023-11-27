@@ -12,3 +12,7 @@
 -e MYSQL_ALLOW_EMPTY_PASSWORD=True: Define uma variável de ambiente indicando que a senha para o usuário root do MySQL será vazia. Isso pode ser útil para ambientes de desenvolvimento, mas, em um ambiente de produção, configurar uma senha é altamente recomendado por questões de segurança.
 
 # docker run -d -p 3006:3006 --name mysql_api_container --rm --network flasknetwork -e MYSQL_ALLOW_EMPTY_PASSWORD=True mysql_api_network
+
+# docker network connect flasknetwork <id do container> (para conectar manualmente)
+# docker network disconnect flasknetwork <id do container>
+# docker network inspect <id do container>
