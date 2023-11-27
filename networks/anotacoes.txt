@@ -1,0 +1,7 @@
+# docker network ls
+# docker network create <nome>
+# bridge --tipo padrao (mais utilizado)
+
+# docker network create -d macvlan <nome>  (para delimitar  drive)
+# docker network rm <nome> (remove)
+# docker network prune (remove redes não utilizadas)
