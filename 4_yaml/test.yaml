@@ -1,2 +1,40 @@
+# instruçoes para o programa
 nome: "Davi"
 idade: 30
+# não pode ter espaçoes (tipo o python)
+
+objeto:
+  versao: 2
+  arquivo: "teste.txt"
+
+versao: 2
+versao_completa: 3.14
+
+string_sem_aspas: digite um texto aqui
+texto: 'Esse tambem é um texto valido para o YAML'
+
+nulo: ~
+nulo_dois: null
+
+verdadeiro: True
+verdadeiro_dois: On
+
+falso: false
+falso_dois: Off
+
+lista: [1,2,3,4,5,6,7,8]
+
+lista_dois:
+  - item 1
+  - item 2
+  - 10 
+  - 'string'
+  - true
+
+obj : {a: 1, b: 2, c: 3, objeto_interno: {a: 1}}
+
+objeto2: 
+  a: 1
+  b: 2
+  objeto_interno:
+    x: 2
