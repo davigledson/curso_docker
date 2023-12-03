@@ -30,6 +30,7 @@ volumes:
   db_data: {}
 networks:
   backend:
+    driver: bridge
 # HzN)$KU&9R(YtvlHxS    (senha do wordpress)
 # docker composer up  ---subir aplicação docker  
 # docker composer down  ---desce aplicação docker
