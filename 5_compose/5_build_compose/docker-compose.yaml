@@ -2,8 +2,7 @@ version: '3.3'
 
 services:
   db:
-    
-    image: mysqlcompose
+    build: ./mysql/
     restart: always
     env_file:
       - ./config/db.env
@@ -17,8 +16,7 @@ services:
   flask:
     depends_on:
       - db
-    
-    image: flaskcompose
+    build: ./flask/
     ports:
       - "5000:5000"
     restart: always
@@ -27,5 +25,8 @@ services:
       
 networks:
   dockercompose:
+
+# docker-compose up -d  (gera o buil durante o compose)
+# (isso vai eliminar o processo de geerar o build da imagem a cada atualização)
 
  
