@@ -6,11 +6,12 @@ services:
     volumes:
       - db_data:/var/lib/mysql
     restart: always
-    environment:
-      MYSQL_ROOT_PASSWORD: wordpress
-      MYSQL_DATABASE: 'wordpress'
-      MYSQL_USER: davi
-      MYSQL_PASSWORD: secret
+    env_file:
+      - ./config/db.env
+    networks:
+      - backend
+    
+     
 
   wordpress:
     depends_on:
@@ -19,14 +20,16 @@ services:
     ports:
       - 8000:80
     restart: always
-    environment:
-      WORDPRESS_DB_HOST: db:3306
-      WORDPRESS_DB_USER: davi
-      WORDPRESS_DB_PASSWORD: secret
-      WORDPRESS_DB_NAME: wordpress
+    env_file:
+      - ./config/wp.env
+    networks:
+      - backend
+      
 
 volumes:
   db_data: {}
+networks:
+  backend:
 # HzN)$KU&9R(YtvlHxS    (senha do wordpress)
 # docker composer up  ---subir aplicação docker  
 # docker composer down  ---desce aplicação docker
