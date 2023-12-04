@@ -1,0 +1,34 @@
+version: '3.3'
+
+services:
+  db:
+    build: ./mysql/
+    restart: always
+    env_file:
+      - ./config/db.env
+    ports:
+      - "3306:3306"
+    networks:
+      - dockercompose
+    volumes:
+      - ./mysql/schema.sql:/docker-entrypoint-initdb.d/init.sql
+
+  flask:
+    depends_on:
+      - db
+    build: ./flask/
+    ports:
+      - "5000:5000"
+    restart: always
+    volumes:
+      - "C:\\Users\\davig\\Documents\\Docker\\curso_docker\\5_compose\\6_build_mount_compose\\flask:/app"
+    networks:
+      - dockercompose
+      
+networks:
+  dockercompose:
+
+# docker-compose up -d  (gera o buil durante o compose)
+# (isso vai eliminar o processo de geerar o build da imagem a cada atualização)
+
+ 
