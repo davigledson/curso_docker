@@ -1,0 +1,28 @@
+# docker swarm init 
+
+# docker swarm init --advertise-addr  (ip da maquina)   --quando for necessario pedir o IP (transforma a maquina em um Manager, se for a primeira, a segunda será um worker)
+
+
+
+
+# docker swarm leave -f (sai do swarm)
+
+# docker node ls (lista nodes ativos)
+
+# docker swarm join --token <TOKEN> <IP>:<PORTA>
+
+# docker swarm join --token SWMTKN-1-1mb9iealikmhxf6uk6hvc3kq4a5o5n6gmuzscz91lscv5s4zv6-db6zfcsuwimswwu2zl3ec0dqz 192.168.0.28:2377
+
+# SUBINDO UM SERVIÇO
+# docker service create --name <nome> <imagem> (alguns serviços pedem porta tipo o nginx (-p 80:80))
+
+# docker service create --name nginxswarm -p 80:80 nginx (exemplo)
+
+
+# (o serviço fica publico na internet --só joga o ip da maquina no navegador)
+# (dessa forma tereamos um container nove sendo adicionado ao noso manager)
+
+# (se for na aws --tem que lembrar de instalar o docker em todas as maquinas)
+
+# docker service ls (lista os serviçoes iniciados)
+# docker service rm (remove serviços -- parar um container que está rodando, e outras consequencias )
