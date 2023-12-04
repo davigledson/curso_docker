@@ -31,4 +31,7 @@ networks:
 # docker-compose up -d  (gera o buil durante o compose)
 # (isso vai eliminar o processo de geerar o build da imagem a cada atualização)
 
+
+# docker-compose ps (lista os docker composes)
+
  
