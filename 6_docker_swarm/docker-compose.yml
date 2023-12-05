@@ -12,6 +12,8 @@
 # docker swarm join --token <TOKEN> <IP>:<PORTA>
 
 # docker swarm join --token SWMTKN-1-1mb9iealikmhxf6uk6hvc3kq4a5o5n6gmuzscz91lscv5s4zv6-db6zfcsuwimswwu2zl3ec0dqz 192.168.0.28:2377
+ 
+
 
 # SUBINDO UM SERVIÇO
 # docker service create --name <nome> <imagem> (alguns serviços pedem porta tipo o nginx (-p 80:80))
@@ -26,3 +28,52 @@
 
 # docker service ls (lista os serviçoes iniciados)
 # docker service rm (remove serviços -- parar um container que está rodando, e outras consequencias )
+
+# PODEMOS CRIAR UM SERVICO COM UM NUMEROS MAIOR DE REPLICAS
+
+# docker service create --name <nome> <imagem> --replicas <numero> <imagem>
+
+# (se tenta excluir uma container depis disso, ele vai automaticamnte reiniciar)
+
+# docker swarm join-token manager (checa o token do manager swarm)
+# (pode usar o parametro manager|worker para checar os tipos de token)
+
+# docker info (checa o  swarm)
+
+# docker swarm leave (para uma instacia, --a instacia nao e contada mais como um node para o swarm 
+# (container para de rodar) 
+# (o status da maquina fica como dowm -- atraves do comando docker node ls)
+
+
+# dokcer node rm <id> (dessa forma a instacia não será condiderada mais um Node)
+# ---vai gerar um problema (o node caido, se resucitado, vai vira um manager, (o manager antigo vai ficar como dowm)) e vai gerar um erro
+
+
+# docker service inspect <id do servico> (vai inpecionar o servico)
+
+# docker service ps <id do servico> (verificar container ativadoes pelo servico --semelhante ao docker ps -a)
+
+
+# para rodar Compose com Swarm, utiliza-se o seguinte comando  de stack
+# docker stack deploy -c <ARQUIVO.YAML> <NOME>  
+# (criar o arquivo antes)
+
+# podemos criar novas réplicas nos Worker Nodes
+# docker service scale <NOME>=<REPLICAS>
+
+# podemos fazer com que um serviço não receva mais ordens do manager
+# docker node update --availability drain <id> (o status e drain, é o que não recebe tasks. Podemos voltar para o active, e ele volta ao normal)
+
+#  ---  ATUALIZANDO PARAMETRO  ----
+# podemos atualizar as configuraçeos dos nossos nodes
+# docker service update --image <IMAGEM> <ID DO SERVICO>
+# dessa forma apenas os nodes que estão com o status active receberão atualizaçoes 
+
+# --- Criando rede para Swarm ---
+# a contexao entre instancais ua um srive diferente o overlay
+#  podemos criar a rede com o docker network create --driver overlay <nome da rede>
+# e depois criar um service adicionan a flag --network <REDE>
+# para inserir as instancias na nova rede
+
+# --- conecta serviços que já estao em execução a uma rede ---
+# docker service update --network-add  <REDE> <NOME>
