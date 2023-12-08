@@ -1,0 +1,4 @@
+# minikube start (inicia o kubernetes)
+# minikube stop (para o kubernetes)
+# minikube darhboard (abre o dashboard o kubernetes)
+# minikube darhboard --url (pega a url do dashboard o kubernetes)
