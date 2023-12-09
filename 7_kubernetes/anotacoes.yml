@@ -9,3 +9,8 @@
 # dessa forma o projeto estará orquestrado pelo Kubernetes
 
 # kubectl create deployment flask-deployment --image=davigledson/flask-kub-projeto
+
+# kubectl get pods  (lista os pods)
+# kubectl describe pods (descreve os pods)
+
+# kubectl config view (ver como está configurado)
