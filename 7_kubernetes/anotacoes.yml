@@ -14,3 +14,11 @@
 # kubectl describe pods (descreve os pods)
 
 # kubectl config view (ver como está configurado)
+
+# --- CRIANDO NOSSO SERVICE ---
+# service = tipo networks
+# kubectl expose deployment <nome do deployment> --type=<tipo de servico> --port=<porta>
+# kubectl expose deployment flask-deployment --type=LoadBalancer --port=5000
+
+# minikube service <nome do deployment>  (dessa forma, temos o serviço rodando no navegador)
+# exemplo minikube service flask-deployment 
