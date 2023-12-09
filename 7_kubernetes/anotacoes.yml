@@ -1,4 +1,11 @@
 # minikube start (inicia o kubernetes)
+# minikube start --driver=docker (inicia o kubernetes, e escolhe o drive)
 # minikube stop (para o kubernetes)
+
 # minikube darhboard (abre o dashboard o kubernetes)
 # minikube darhboard --url (pega a url do dashboard o kubernetes)
+
+# kubectl create deployment <NOME> --image=<IMAGE>
+# dessa forma o projeto estará orquestrado pelo Kubernetes
+
+# kubectl create deployment flask-deployment --image=davigledson/flask-kub-projeto
