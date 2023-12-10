@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata: 
+  name: flask-app-deployment
+spec: #especificações 
+  replicas: 4
+  selector:
+    matchLabels:
+      app: flask-app
+  template: #como o container vai rodar
+    metadata:
+      labels:
+        app: flask-app
+    spec: 
+      container:
+        - name: flask
+          image: davigledson/flask-kub-projeto:2
