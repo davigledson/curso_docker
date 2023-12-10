@@ -1,3 +1,17 @@
+---  # ---  separação de arquivos
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+spec:
+  selector:
+    app: flask-app
+  ports:
+    - protocol: 'TCP'
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
@@ -15,6 +29,3 @@ spec: #especificações
       containers:
         - name: flask
           image: davigledson/flask-kub-projeto:5
-
-# kubectl apply -f <arquivo>  (executa o arquivo)
-# kubectl delete -f <arquivo> (dessa maneira teremos os Pods sendo excluídos e o serviço finalizado)

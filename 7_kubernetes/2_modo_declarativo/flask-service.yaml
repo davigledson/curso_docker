@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: flask-service
+spec:
+  selector:
+    app: flask-app
+  ports:
+    - protocol: 'TCP'
+      port: 5000
+      targetPort: 5000
+  type: LoadBalancer
+
+# --- Executando o serviço ---
+# kubectl apply -f <arquivo>
+# Obs: precisamos gerar o IP de acesso com o
+# minikube service <nome>
+
+# kubectl delete -f flask-service.yaml (deletar o service)
+# (ele para de roda no navegador)
+
+# -- uteis ---
+#  minikube service list
+# kubectl get deployments
+# kubectl get pods 
+
+# --- atualizando o projeto no declarativo ---
+# primeiramente vamos criar uma nova versão da imagem
+# e fazer o push para o Hub
+# depois é só alterar no arquivo de Deployment a tag
+# e reaplicar o comando de aplly
