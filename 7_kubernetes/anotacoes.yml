@@ -52,3 +52,8 @@
 # kubectl rollout status deployment/<nome do servico> (verifica a alteração)
 
 # kubectl rollout undo deployment/<nome do servico> (faz o  rollback)
+
+# kubectl delete service <nome> (deletar o serviço)
+# (dessa maneira nossos Pods não terão mais a conexão externo)
+
+# kubectl delete deployment <nome> (dessa maneira, o container não estará mais rodando)
