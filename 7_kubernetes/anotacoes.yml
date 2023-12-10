@@ -22,3 +22,33 @@
 
 # minikube service <nome do deployment>  (dessa forma, temos o serviço rodando no navegador)
 # exemplo minikube service flask-deployment 
+
+
+# ---VERIFICANDO OS NOSSOS SERVIÇOS ---
+# kubectl get services (lista dos serviços )
+#  kubectl describe service <nome do serviço>  /// kubectl describe service/flask-deployment   (descreve o serviço )
+
+# --- REPLICANDO NOSSA APLICAÇÃO ---
+# kubectl scale deployment/<nome do servico> --replicas=<NUMERO> (scala a aplicação) (podemos verificar no Dashboard o aumento de Pods)
+
+# kubectl get pods (ver os pods)
+# kubectl get rs (checa os status das replicas dos projetos)
+
+# --- Diminuindo a escala --- 
+# (o comando é o mesmo, porem colocamos menos réplicas e o Kubernetes faz o resto)
+
+ # kubectl scale deployment/<nome do servico> --replicas=<NUMERO> (scala a aplicação) (podemos verificar no Dashboard o aumento de Pods)
+
+# --- ATUALIZANDO IMAGE DO PROJETO ---
+# para atualizar a imagem vamos precisar do nome do container dado na Dashboard dentro do Pod
+# è também a nova imagem deve ser de uma outra versão da atual (precisamos subir uma nova tag no Hub) 
+
+# kubectl set image deployment/<nome do servico> <nome_container>=<nova_imagem>
+# EXEMPLO:  kubectl set image deployment/flask-deployment flask-kub-projeto=davigledson/flask-kub-projeto:2
+
+
+# --- DESFAZER ALTERAÇÃO ---
+
+# kubectl rollout status deployment/<nome do servico> (verifica a alteração)
+
+# kubectl rollout undo deployment/<nome do servico> (faz o  rollback)
